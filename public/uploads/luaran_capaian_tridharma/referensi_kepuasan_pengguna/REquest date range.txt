@@ -1,0 +1,33 @@
+ngga Dwi9:08 PM
+$request = Yii::$app->request->post('username');
+Angga Dwi9:17 PM
+
+    public function actionUser() {
+
+        $model = new UserFormModel;
+
+        if($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+            $session = Yii::$app->session;
+
+            $session->open();
+
+            $request = Yii::$app->request->post('username');
+
+            return $this->render('hello');
+
+        } else {
+
+            return $this->render('userFrom', ['model'=>$model]);
+
+        }
+Angga Dwi9:20 PM
+$request=Yii:$app->request->post('UserFormModel')['username']; //For PHP > 5.4
+
+//or for PHP < 5.4 :
+
+$post =Yii::$app->request->post('UserFormModel');
+
+$request = $post['username'];
+Angga Dwi9:39 PM
+$request->get('column');
